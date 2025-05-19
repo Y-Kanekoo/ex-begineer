@@ -20,9 +20,9 @@ public class Exam03Controller {
 
     @RequestMapping("/purchase")
     public String purchase(Integer item1, Integer item2, Integer item3){
-        int total = item1 + item2 + item3;
-        int totalwithtax = (int) (total * 1.1);
-        application.setAttribute("total",total);
+        int subtotal = item1 + item2 + item3;
+        int totalwithtax = (int) (subtotal * 1.1);
+        application.setAttribute("subtotal",subtotal);
         application.setAttribute("totalwithtax", totalwithtax);
         return "exam03-result";
     }
