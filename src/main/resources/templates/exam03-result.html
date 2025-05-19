@@ -7,8 +7,20 @@
   <body>
     <h1>合計金額</h1>
     <p>
-      ・税抜き価格<br /><span th:text="${application.subtotal}"></span>円
+      <!--      ・税抜き価格<br /><span th:text="${application.subtotal,3,'comma'}"></span>円-->
+
+      ・税抜き価格<br /><span
+        th:if="${application.subtotal != null}"
+        th:text="${#numbers.formatInteger(application.subtotal, 1, 'COMMA')}"
+      ></span
+      >円
     </p>
-    <p>・税込み価格<br /><span th:text="${application.totalwithtax}"></span>円</p>
+    <p>
+      ・税込み価格<br /><span
+        th:if="${application.totalWithTax != null}"
+        th:text="${#numbers.formatInteger(application.totalWithTax, 1, 'COMMA')}"
+      ></span
+      >円
+    </p>
   </body>
 </html>
